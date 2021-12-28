@@ -46,6 +46,34 @@ namespace Shard
                     Console.WriteLine(file);
                 }
             }
+            if (input == "mk") {
+                Console.Write("File name: ");
+                string fname = Console.ReadLine();
+                
+                try
+                {
+                    var file_stream = File.Create(@"0:\" + fname);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+                Console.WriteLine("File successfully created");
+            }
+            if (input == "wr") {
+                Console.WriteLine("Which File would you like to write to? Type the name and extension ex: example.txt");
+                string file = Console.ReadLine();
+                Console.WriteLine("What would you like to write into this file? Type the contents ex: hello! My name is John");
+                string contents = Console.ReadLine();
+                try
+                {
+                    File.WriteAllText(@"0:\" + file, contents);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+           } 
         }
     }
 }
