@@ -13,7 +13,7 @@ namespace Shard
             Console.WriteLine("Booting into Shell\n");
             Sys.FileSystem.CosmosVFS fs = new Sys.FileSystem.CosmosVFS();
             Sys.FileSystem.VFS.VFSManager.RegisterVFS(fs);
-            fs.Format("X" /*drive id*/, "FAT32" /*fat type*/, true /*use quick format*/);
+            fs.Format("0" /*drive id*/, "FAT32" /*fat type*/, true /*use quick format*/);
         }
 
         protected override void Run()
