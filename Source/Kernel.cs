@@ -39,6 +39,13 @@ namespace Shard
                 var fs_type = fs.GetFileSystemType(@"0:\");
                 Console.WriteLine("File System Type: " + fs_type);
             }
+            if (input == "ls") {
+                var directory_list = Directory.GetFiles(@"0:\");
+                foreach (var file in directory_list)
+                {
+                    Console.WriteLine(file);
+                }
+            }
         }
     }
 }
