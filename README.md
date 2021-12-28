@@ -1,2 +1,2 @@
-# Shard
-Shard is an OS made with Cosmos
+# ShardOS
+ShardOS is an operating systems made with Cosmos
