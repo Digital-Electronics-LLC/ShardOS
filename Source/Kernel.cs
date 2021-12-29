@@ -23,28 +23,28 @@ namespace Shard
             string input;
             Console.Write("/> ");
             input = Console.ReadLine();
-
+            
             if (input == "about")
             {
                 Console.WriteLine("\nThis is ShardOS", version, "\nYou are using a dev version\nPlease update as soon as possible\n");
             }
             if (input == "help")
             {
-                Console.WriteLine("\nCommands Availible:\nHelp --- Gets you to this message\nAbout --- Tells you about this OS\nGetSize --- Tells you the fs size\nGetType --- Tells you the fs type");
+                Console.WriteLine("\nCommands Availible:\nHelp --- Gets you to this message\nAbout --- Tells you about this OS\nGetSize --- Tells you the fs size\nGetType --- Tells you the fs type\nls --- lists all the files in the 0 dir\n mk --- creates a file\nwr --- writes into a file");
             }
             if (input == "GetSize")
             {
-                var available_space = fs.GetAvailableFreeSpace(@"0:\");
+                var available_space = fs.GetAvailableFreeSpace(@"0:");
                 Console.WriteLine("Available Free Space: " + available_space);
             }
             if (input == "GetType")
             {
-                var fs_type = fs.GetFileSystemType(@"0:\");
+                var fs_type = fs.GetFileSystemType(@"0:");
                 Console.WriteLine("File System Type: " + fs_type);
             }
             if (input == "ls")
             {
-                var directory_list = Directory.GetFiles(@"0:\");
+                var directory_list = Directory.GetFiles(@"0:");
                 foreach (var file in directory_list)
                 {
                     Console.WriteLine(file);
@@ -57,7 +57,7 @@ namespace Shard
 
                 try
                 {
-                    var file_stream = File.Create(@"0:\" + fname);
+                    var file_stream = File.Create(@"0:" + fname);
                 }
                 catch (Exception e)
                 {
@@ -73,7 +73,7 @@ namespace Shard
                 string contents = Console.ReadLine();
                 try
                 {
-                    File.WriteAllText(@"0:\" + file, contents);
+                    File.WriteAllText(@"0:" + file, contents);
                 }
                 catch (Exception e)
                 {
