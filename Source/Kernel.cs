@@ -8,6 +8,7 @@ namespace Shard
     public class Kernel : Sys.Kernel
     {
         Sys.FileSystem.CosmosVFS fs = new Sys.FileSystem.CosmosVFS();
+        string current_directory = "0:\\"
         protected override void BeforeRun()
         {
             Console.WriteLine("ShardOS booted successfully. Type 'help' for a list of commands");
@@ -44,7 +45,7 @@ namespace Shard
             }
             else if (input == "ls")
             {
-                var directory_list = Directory.GetFiles(@"0:");
+                var directory_list = Directory.GetFiles(current_directory);
                 foreach (var file in directory_list)
                 {
                     Console.WriteLine(file);
@@ -57,7 +58,7 @@ namespace Shard
 
                 try
                 {
-                    var file_stream = File.Create(@"0:" + fname);
+                    var file_stream = File.Create(current_directory + fname);
                 }
                 catch (Exception e)
                 {
@@ -73,7 +74,7 @@ namespace Shard
                 string contents = Console.ReadLine();
                 try
                 {
-                    File.WriteAllText(@"0:" + file, contents);
+                    File.WriteAllText(current_directory + file, contents);
                 }
                 catch (Exception e)
                 {
