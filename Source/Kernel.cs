@@ -101,6 +101,25 @@ namespace Shard
                     Console.WriteLine(e.ToString());
                 }
             }
+            else if (input.StartsWith("cd "))
+            {
+                bool isDirExist = Directory.Exists(current_directory + input.Remove(0, 3));
+                try
+                {
+                    if (isDirExist == true)
+                    {
+                        current_directory = current_directory + input.Remove(0, 3);
+                    }
+                    else if (input.Remove(0,3) == "0:\\")
+                    {
+                        current_directory = "0:\\";
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+            }
         }
     }
 }
