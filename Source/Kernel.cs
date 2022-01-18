@@ -61,8 +61,7 @@ namespace Shard
             }
             else if (input.StartsWith("mk "))
             {
-                Console.Write("File name: ");
-                string fname = Console.ReadLine();
+                string fname = input.Remove(0, 3);
 
                 try
                 {
@@ -73,6 +72,20 @@ namespace Shard
                     Console.WriteLine(e.ToString());
                 }
                 Console.WriteLine("File successfully created");
+            }
+            else if (input.StartsWith("mkdir "))
+            {
+                string dname = input.Remove(0, 6);
+
+                try
+                {
+                    var file_stream = Directory.CreateDirectory(current_directory + dname);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+                Console.WriteLine("Directory succefully created");
             }
             else if (input.StartsWith("wr "))
             {
