@@ -21,13 +21,21 @@ namespace Shard
         protected override void Run()
         {
             string version = "0.2.1";
+            bool isDev = true // put false when stable
             string input;
             Console.Write("/> ");
             input = Console.ReadLine();
             
             if (input == "about")
             {
-                Console.WriteLine("\nThis is ShardOS", version, "\nYou are using a dev version\nPlease update as soon as possible\n");
+                if (isDev == true)
+                    {
+                        Console.WriteLine("\nThis is ShardOS ", version, "\nYou are using a dev version\nPlease update as soon as possible\n");
+                    }
+                else
+                {
+                    Console.WriteLine("\nThis is ShardOS ", version)
+                }
             }
             else if (input == "help")
             {
