@@ -28,21 +28,21 @@ namespace Shard
             {
                 Console.WriteLine("\nThis is ShardOS", version, "\nYou are using a dev version\nPlease update as soon as possible\n");
             }
-            if (input == "help")
+            else if (input == "help")
             {
                 Console.WriteLine("\nCommands Availible:\nHelp --- Gets you to this message\nAbout --- Tells you about this OS\nGetSize --- Tells you the fs size\nGetType --- Tells you the fs type\nls --- lists all the files in the 0 dir\n mk --- creates a file\nwr --- writes into a file");
             }
-            if (input == "GetSize")
+            else if (input == "GetSize")
             {
                 var available_space = fs.GetAvailableFreeSpace(@"0:");
                 Console.WriteLine("Available Free Space: " + available_space);
             }
-            if (input == "GetType")
+            else if (input == "GetType")
             {
                 var fs_type = fs.GetFileSystemType(@"0:");
                 Console.WriteLine("File System Type: " + fs_type);
             }
-            if (input == "ls")
+            else if (input == "ls")
             {
                 var directory_list = Directory.GetFiles(@"0:");
                 foreach (var file in directory_list)
@@ -50,7 +50,7 @@ namespace Shard
                     Console.WriteLine(file);
                 }
             }
-            if (input == "mk")
+            else if (input == "mk")
             {
                 Console.Write("File name: ");
                 string fname = Console.ReadLine();
@@ -65,7 +65,7 @@ namespace Shard
                 }
                 Console.WriteLine("File successfully created");
             }
-            if (input == "wr")
+            else if (input == "wr")
             {
                 Console.WriteLine("Which File would you like to write to? Type the name and extension ex: example.txt");
                 string file = Console.ReadLine();
