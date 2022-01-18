@@ -39,7 +39,7 @@ namespace Shard
             }
             else if (input == "help")
             {
-                Console.WriteLine("\nCommands Availible:\nHelp --- Gets you to this message\nAbout --- Tells you about this OS\nGetSize --- Tells you the fs size\nGetType --- Tells you the fs type\nls --- lists all the files in the 0 dir\n mk --- creates a file\nwr --- writes into a file");
+                Console.WriteLine("\nCommands Availible:\nHelp --- Gets you to this message\nAbout --- Tells you about this OS\nGetSize --- Tells you the fs size\nGetType --- Tells you the fs type\nls --- lists all the files in the 0 dir\nmk [file name] --- creates a file\nwr [file name] --- writes into a file");
             }
             else if (input == "GetSize")
             {
@@ -59,7 +59,7 @@ namespace Shard
                     Console.WriteLine(file);
                 }
             }
-            else if (input == "mk")
+            else if (input.StartsWith("mk "))
             {
                 Console.Write("File name: ");
                 string fname = Console.ReadLine();
@@ -74,10 +74,9 @@ namespace Shard
                 }
                 Console.WriteLine("File successfully created");
             }
-            else if (input == "wr")
+            else if (input.StartsWith("wr "))
             {
-                Console.WriteLine("Which File would you like to write to? Type the name and extension ex: example.txt");
-                string file = Console.ReadLine();
+                string file = input.Remove(0, 3);
                 Console.WriteLine("What would you like to write into this file? Type the contents ex: hello! My name is John");
                 string contents = Console.ReadLine();
                 try
